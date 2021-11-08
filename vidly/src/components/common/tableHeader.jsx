@@ -5,8 +5,7 @@ import React, { Component } from "react";
 // onSort: function
 
 class TableHeader extends Component {
-  //raiseSort function
-  raiseSort = (path) => {
+  raiseSort = path => {
     const sortColumn = { ...this.props.sortColumn };
     if (sortColumn.path === path)
       sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
@@ -17,8 +16,7 @@ class TableHeader extends Component {
     this.props.onSort(sortColumn);
   };
 
-  //renderSort function
-  renderSortIcon = (column) => {
+  renderSortIcon = column => {
     const { sortColumn } = this.props;
 
     if (column.path !== sortColumn.path) return null;
@@ -30,7 +28,7 @@ class TableHeader extends Component {
     return (
       <thead>
         <tr>
-          {this.props.columns.map((column) => (
+          {this.props.columns.map(column => (
             <th
               className="clickable"
               key={column.path || column.key}
